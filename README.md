@@ -1,81 +1,68 @@
-# Plant Disease Detection Project
+# Crop Disease Detection - Applied Machine Learning
 
-## Description
+This repository contains the implementation of a Convolutional Neural Network (CNN) to detect plant diseases from leaf images. 
 
-This project aims to develop a convolutional neural network (CNN) to detect various plant diseases from images. The project consists of two versions with different levels of complexity and data augmentation techniques.
+- **Version 1 (v1)**: Basic CNN model.
 
-## Version 1
+## Version 1 (v1)
 
-### Overview
-- **Title**: Plant Disease Detection (v.1)
-- **Training Data**: Basic data augmentation with `rescale=1./255`
-- **Model Architecture**:
-  - Input layer
-  - Two convolutional layers with 32 and 64 filters respectively, each followed by a max pooling layer
-  - Flatten layer
-  - Dense layer with 128 units and ReLU activation
-  - Output dense layer with softmax activation for classification
-- **Training**:
-  - Optimizer: Adam
-  - Loss: Categorical Crossentropy
-  - Metrics: Accuracy
-  - Early stopping with patience of 5 epochs
-- **Results**: Model achieved a high accuracy on validation data.
-- **Saved Model**: `plant_disease_cnn_model.pkl`
+### Description
+In Version 1, a basic CNN model was developed to classify images of plant leaves into different disease categories. The model was trained on the New Plant Diseases Dataset using Keras and TensorFlow. The notebook includes the following steps:
+- Data Loading and Preprocessing
+- Model Architecture
+- Model Training
+- Model Evaluation
+- Prediction on Sample Images
 
-### Key Files
-- `plantdiseasedetection(v.1).ipynb`
-- `plant_disease_cnn_model.pkl`
-- `README.md`
+### Model Architecture
+- Input Layer: (128, 128, 3)
+- Convolutional Layer 1: 32 filters, (3, 3) kernel, ReLU activation
+- MaxPooling Layer 1: (2, 2) pool size
+- Convolutional Layer 2: 64 filters, (3, 3) kernel, ReLU activation
+- MaxPooling Layer 2: (2, 2) pool size
+- Flatten Layer
+- Dense Layer 1: 128 nodes, ReLU activation
+- Output Layer: Softmax activation, number of classes = 36 (number of disease categories)
 
-## Version 2
+### Training
+- Optimizer: Adam
+- Loss: Categorical Crossentropy
+- Metrics: Accuracy
+- Epochs: 100
+- Early Stopping: Applied with patience of 5 epochs
 
-### Overview
-- **Title**: Enhanced Plant Disease Detection (v.2)
-- **Training Data**: Advanced data augmentation including:
-  - Rescaling
-  - Rotation
-  - Width shift
-  - Height shift
-  - Shear
-  - Zoom
-  - Horizontal flip
-- **Model Architecture**:
-  - Input layer
-  - Three convolutional layers with 32, 64, and 128 filters respectively, each followed by a max pooling layer
-  - Dropout layers for regularization after each max pooling layer
-  - Flatten layer
-  - Dense layer with 256 units and ReLU activation
-  - Dropout layer
-  - Output dense layer with softmax activation for classification
-- **Training**:
-  - Optimizer: Adam
-  - Loss: Categorical Crossentropy
-  - Metrics: Accuracy
-  - Early stopping with patience of 5 epochs
-- **Results**: Model achieved a high accuracy on validation data.
-- **Saved Model**: `enhanced_plant_disease_cnn_model.pkl`
+### Results
+The model achieved high accuracy on the validation set, demonstrating its capability to effectively classify plant diseases.
 
-### Key Files
-- `plantdiseasedetection(v.2).ipynb`
-- `enhanced_plant_disease_cnn_model.pkl`
-- `README.md`
+### Files
+- `plantdiseasedetection(v.1).ipynb`: Jupyter notebook containing the code for Version 1.
+- `plantdiseasedetection(v.1).html`: HTML export of the Version 1 notebook for easy viewing.
+- `plant_disease_cnn_model.pkl`: Serialized model file saved using pickle.
 
-## Contributing
-Special thanks to the contributors:
-- [Purva Gevaria](https://github.com/purvagevaria/)
-- [Bhumika Pathak](https://github.com/BhumikaPathak2)
-- [Mubarak Imam](https://github.com/Mubarak-Imam)
-- [Ricardo Patrocinio](https://github.com/Ricpatrocinio)
+### Data Overview
+The dataset used for training and validation is the [New Plant Diseases Dataset](https://www.kaggle.com/datasets/vipoooool/new-plant-diseases-dataset). The dataset contains images of plant leaves with and without diseases.
 
-## Dataset
-The dataset used in this project can be found on [Kaggle](https://www.kaggle.com/datasets/vipoooool/new-plant-diseases-dataset).
+#### Training Data
+- **Total Images**: 64,368
+- **Number of Classes**: 36
 
-## How to Run
-1. Clone this repository: `git clone https://github.com/Ricpatrocinio/cropDesease_AppliedML.git`
-2. Navigate to the project directory.
-3. Open the desired version's notebook (`.ipynb` file) and run the cells sequentially to train and evaluate the model.
-4. Use the saved model for predictions on new images as shown in the notebook.
+#### Validation Data
+- **Total Images**: 16,098
+- **Number of Classes**: 36
 
-## License
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+### Getting Started
+
+#### Prerequisites
+- Python 3.x
+- TensorFlow
+- Keras
+- NumPy
+- Matplotlib
+- scikit-learn
+
+Contributing
+
+Bhumika Pathak
+Mubarak Imam
+Purva Gevaria
+Ricardo Patrocinio
